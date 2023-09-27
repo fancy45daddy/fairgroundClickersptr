@@ -1,4 +1,4 @@
-import aiohttp, asyncio, bs4, fake_useragent, argparse, re, builtins, locale, sys, numpy, cv2, pytesseract, tensorflow
+import aiohttp, asyncio, bs4, fake_useragent, argparse, re, builtins, locale, sys, numpy, cv2
 parser = argparse.ArgumentParser()
 parser.add_argument('password')
 locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
