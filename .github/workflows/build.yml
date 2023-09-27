@@ -8,4 +8,4 @@ jobs:
         - run: |
               sudo apt install -y --no-install-recommends python3-aiohttp python3-bs4 python3-lxml
               python3 -m pip install -U fake_useragent
-              python3 fairgroundClickersptr.py ${{secrets.password}}
+              python3 fairgroundClickersptr.py HL798820y+
