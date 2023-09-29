@@ -2,7 +2,7 @@ import aiohttp, asyncio, bs4, fake_useragent, argparse, re, builtins, locale, sy
 parser = argparse.ArgumentParser()
 parser.add_argument('password')
 locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
-
+#
 def check(_):
     return _.find(string='Invalid paid mail ID.') or _.find(string=re.compile('You have already visited this sponsor and')) or _.find(string=re.compile('Invalid paid mail ID - Ad Has Expired')) or _.find('b', string='Sorry, this link just expired')
 
