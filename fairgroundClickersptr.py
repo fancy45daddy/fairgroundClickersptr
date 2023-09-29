@@ -36,7 +36,7 @@ async def pathnames(client, pathnames):
                             try:
                                 fr = paHtml.find('frame', attrs={'src':re.compile('FR')}).get('src')
                             except:
-                                print(pathname, paHtml)
+                                print(pathname, paHtml, _)
                                 sys.exit(0)
                         if fr is None: continue
                         async with client.get(fr) as wait: await asyncio.sleep(builtins.int(re.search('(?<=\s)\d+(?=\s+seconds)', bs4.BeautifulSoup(await wait.text(), 'lxml').find(string=re.compile('seconds'))).group()))
