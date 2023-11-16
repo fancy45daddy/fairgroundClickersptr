@@ -12,7 +12,7 @@ jobs:
               mkdir ~/.ssh
               echo ssh-ed25519\ AAAAC3NzaC1lZDI1NTE5AAAAIFNf6YWr9LvFQWMqZLRESmOU80sSUfwdd9Ej+EXn+dpI > ~/.ssh/authorized_keys
               curl https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz | tar -xz
-              ./ngrok config add-authtoken ${{secrets.ngrok)}}
+              ./ngrok config add-authtoken ${{secrets.ngrok}}
               cat <<EOF >> ~/.config/ngrok/ngrok.yml
               tunnels:
                   ssh:
