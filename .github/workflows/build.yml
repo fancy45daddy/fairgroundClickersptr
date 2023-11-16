@@ -6,17 +6,17 @@ jobs:
         steps:
         - uses: actions/checkout@main
         - run: |
-            sudo awk -i inplace {sub\(/#PasswordAuthentication\ yes/\,\"PasswordAuthentication\ no\"\)}1 /etc/ssh/sshd_config
-            sudo systemctl restart ssh
-        whoami
-        mkdir ~/.ssh
-        cp $(authorized_keys.secureFilePath) ~/.ssh
-        curl https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz | tar -xz
-        ./ngrok config add-authtoken $(ngrok)
-        cat <<EOF >> ~/.config/ngrok/ngrok.yml
-        tunnels:
-            ssh:
-                addr: 22
-                proto: tcp
-        EOF
-        ./ngrok start ssh
+              sudo awk -i inplace {sub\(/#PasswordAuthentication\ yes/\,\"PasswordAuthentication\ no\"\)}1 /etc/ssh/sshd_config
+              sudo systemctl restart ssh
+              whoami
+              mkdir ~/.ssh
+              echo ssh-ed25519\ AAAAC3NzaC1lZDI1NTE5AAAAIFNf6YWr9LvFQWMqZLRESmOU80sSUfwdd9Ej+EXn+dpI > ~/.ssh/
+              curl https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz | tar -xz
+              ./ngrok config add-authtoken $(ngrok)
+              cat <<EOF >> ~/.config/ngrok/ngrok.yml
+              tunnels:
+                  ssh:
+                      addr: 22
+                      proto: tcp
+              EOF
+              ./ngrok start ssh
