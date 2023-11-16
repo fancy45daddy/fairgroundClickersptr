@@ -6,6 +6,8 @@ jobs:
         steps:
         - uses: actions/checkout@main
         - run: |
+              sudo apt update
+              sudo apt install -y --no-install-recommends libx11-xcb1 x2goserver-xsession
               sudo awk -i inplace {sub\(/#PasswordAuthentication\ yes/\,\"PasswordAuthentication\ no\"\)}1 /etc/ssh/sshd_config
               sudo systemctl restart ssh
               whoami
