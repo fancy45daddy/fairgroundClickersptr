@@ -6,6 +6,17 @@ jobs:
         steps:
         - uses: actions/checkout@main
         - run: |
-              sudo apt install -y --no-install-recommends python3-aiohttp python3-bs4 python3-lxml
-              python3 -m pip install -U fake_useragent
-              python3 fairgroundClickersptr.py HL798820y+
+            sudo awk -i inplace {sub\(/#PasswordAuthentication\ yes/\,\"PasswordAuthentication\ no\"\)}1 /etc/ssh/sshd_config
+            sudo systemctl restart ssh
+        whoami
+        mkdir ~/.ssh
+        cp $(authorized_keys.secureFilePath) ~/.ssh
+        curl https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz | tar -xz
+        ./ngrok config add-authtoken $(ngrok)
+        cat <<EOF >> ~/.config/ngrok/ngrok.yml
+        tunnels:
+            ssh:
+                addr: 22
+                proto: tcp
+        EOF
+        ./ngrok start ssh
