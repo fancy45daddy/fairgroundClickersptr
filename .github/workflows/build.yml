@@ -27,7 +27,7 @@ jobs:
         steps:
         - run: |
              sudo apt install -y miredo
-             sudo sed -i 's/ServerAddress	teredo-debian.remlab.net/ServerAddress teredo.iks-jena.de/g' /etc/miredo.conf
+             #sudo sed -i 's/ServerAddress	teredo-debian.remlab.net/ServerAddress teredo.iks-jena.de/g' /etc/miredo.conf
              sudo miredo
              cat /etc/miredo.conf
              sleep 1
