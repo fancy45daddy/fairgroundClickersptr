@@ -54,5 +54,5 @@ export function createTLSClient(config) {
   });
 }
 ```
-This project is tested with BrowserStack
 
+This project is tested with BrowserStack'
